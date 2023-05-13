@@ -1,4 +1,4 @@
-# OCR is Optical Character Recognition
+# Optical Character Recognition
 To use code you need \n
 `pip install -r requirements.txt` to setting enviroment for our code.
 `python main.py` on command prompt to run code.
