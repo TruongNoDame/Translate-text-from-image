@@ -1,4 +1,4 @@
 # Create api to handle image 
 
 You must run `pip install -r requirement.txt` to install packages.
-After that you need run `python main.py` or `python3 main.py`.
+After that you can use our website on your local machine `localhost:8000`.
