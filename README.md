@@ -1,1 +1,1 @@
-# Translate-text-from-image
+# Translate-from-image
