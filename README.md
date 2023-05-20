@@ -8,4 +8,8 @@
         
         https://drive.google.com/drive/folders/1mh3rzYTAUs-lcCuzqLlX8zMP4MyvMhzd?usp=sharing
     
-    You have to create a folder named models to save the following files: TPS-ResNet-BiLSTM-Attn.pth, TPS-ResNet-BiLSTM-CTC.pth, craft_mlt_25k.pth, and 3 file in https://drive.google.com/drive/folders/1mh3rzYTAUs-lcCuzqLlX8zMP4MyvMhzd?usp=sharing
+    You have to create a folder named models to save the following files: 
+        TPS-ResNet-BiLSTM-Attn.pth, 
+        TPS-ResNet-BiLSTM-CTC.pth, 
+        craft_mlt_25k.pth, 
+        and 3 file in https://drive.google.com/drive/folders/1mh3rzYTAUs-lcCuzqLlX8zMP4MyvMhzd?usp=sharing
