@@ -1,4 +1,4 @@
-"""  
+"""
 Copyright (c) 2019-present NAVER Corp.
 MIT License
 """
@@ -43,8 +43,8 @@ def resize_aspect_ratio(img, square_size, interpolation, mag_ratio=1):
     # set original image size
     if target_size > square_size:
         target_size = square_size
-    
-    ratio = target_size / max(height, width)    
+
+    ratio = target_size / max(height, width)
 
     target_h, target_w = int(height * ratio), int(width * ratio)
     proc = cv2.resize(img, (target_w, target_h), interpolation = interpolation)
@@ -68,3 +68,29 @@ def cvt2HeatmapImg(img):
     img = (np.clip(img, 0, 1) * 255).astype(np.uint8)
     img = cv2.applyColorMap(img, cv2.COLORMAP_JET)
     return img
+
+def rotate_image(image, angle):
+    (h, w) = image.shape[:2]
+    center = (w // 2, h // 2)
+    M = cv2.getRotationMatrix2D(center, angle, 1.0)
+    corrected = cv2.warpAffine(image, M, (w, h), flags = cv2.INTER_CUBIC, \
+        borderMode = cv2.BORDER_REPLICATE)
+    return corrected
+
+def determine_score(arr):
+     histogram = np.sum(arr, axis = 2, dtype = float)
+     score = np.sum((histogram[..., 1 :] - histogram[..., : -1]) ** 2, \
+        axis = 1, dtype = float)
+     return score
+
+def correct_skew(image, delta = 2, limit = 70):
+     gray_img  = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+     thresh = cv2.threshold(gray_img, 0, 255, cv2.THRESH_BINARY_INV + \
+        cv2.THRESH_OTSU)[1]
+     angles = np.arange(-limit, limit + delta, delta)
+     img_stack = np.stack([rotate_image(thresh, angle) for angle \
+        in angles], axis = 0)
+     scores = determine_score(img_stack)
+     best_angle = angles[np.argmax(scores)]
+     corrected = rotate_image(image, best_angle)
+     return corrected
