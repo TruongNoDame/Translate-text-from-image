@@ -5,6 +5,7 @@ import torch
 import torch.backends.cudnn as cudnn
 import torch.utils.data
 import torch.nn.functional as F
+# from spellchecker import SpellChecker
 
 import cv2
 import os
@@ -15,7 +16,7 @@ from text_recognition.dataset import RawDataset, AlignCollate
 from text_recognition.model import Model
 
 class Opt():
-    def __init__(self, saved_model, Transformation, FeatureExtraction, SequenceModeling, Prediction, sensitive=False):
+    def __init__(self, saved_model, Transformation, FeatureExtraction, SequenceModeling, Prediction, sensitive=True):
         self.saved_model = saved_model
         self.Transformation = Transformation
         self.FeatureExtraction = FeatureExtraction
@@ -29,7 +30,8 @@ class Opt():
         self.imgH = 32
         self.imgW = 100
         self.rgb = False
-        self.character = '0123456789abcdefghijklmnopqrstuvwxyz'
+        # self.character = '0123456789abcdefghijklmnopqrstuvwxyz'
+        self.character = string.printable[:-6]
         self.sensitive = sensitive
         self.PAD = False
         self.num_fiducial = 20
@@ -44,7 +46,7 @@ class Opt():
 
 
 class Recogniter():
-    def __init__(self, saved_model, Transformation, FeatureExtraction, SequenceModeling, Prediction, sensitive=False):
+    def __init__(self, saved_model, Transformation, FeatureExtraction, SequenceModeling, Prediction, sensitive=True):
         self.opt = Opt(saved_model, Transformation, FeatureExtraction, SequenceModeling, Prediction, sensitive)
 
         """ model configuration """
@@ -81,7 +83,7 @@ class Recogniter():
         #     collate_fn=AlignCollate_demo, pin_memory=True)
 
         # print(demo_loader)
-
+        # spell = SpellChecker()
         results = ""
         # ============= Preprocessing ==========
         list = []
@@ -139,11 +141,14 @@ class Recogniter():
 
                     # calculate confidence score (= multiply of pred_max_prob)
                     confidence_score = pred_max_prob.cumprod(dim=0)[-1]
+                    # corrected_word = spell.correction(pred)
                     results = results + pred + " "
                     # print(f'\t{pred:25s}\t{confidence_score:0.4f}')
                     # log.write(f'{img_name:25s}\t{pred:25s}\t{confidence_score:0.4f}\n')
 
                 # log.close()
+        # Sửa lỗi chính tả
+        # results = correct_spelling(results)
         return results
 
 if __name__ == '__main__':
