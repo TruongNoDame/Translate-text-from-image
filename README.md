@@ -10,10 +10,9 @@ In this application we use [CRAFT](https://arxiv.org/abs/1904.01941) for text de
 ## Run demo
 
 To run this repo, follow these steps if you don't want to use docker:
-'''
+```
 git clone this repo
 cd Translate-text-from-image
 pip install -r requirements.txt
 python/python3 my_api.py
-
-'''
+```
