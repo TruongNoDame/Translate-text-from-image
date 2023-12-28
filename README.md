@@ -9,7 +9,7 @@ In this application we use [CRAFT](https://arxiv.org/abs/1904.01941) for text de
 
 ## Run demo
 
-To run this repo, follow these steps if you don't want to use docker:
+#### To run this repo, follow these steps if you don't want to use docker:
 
 Before that, let create a folder named models in Translate-text-from-image, you can download all file in [this folder](https://drive.google.com/drive/u/2/folders/1mh3rzYTAUs-lcCuzqLlX8zMP4MyvMhzd).
 ```
@@ -20,7 +20,9 @@ python/python3 my_api.py
 ```
 
 After running all code above, you can try it by your browser. Let put `http://localhost:8000/text` in your browser.
-To run this repo use docker:
+
+
+#### To run this repo use docker:
 ```
 git clone this repo
 cd Translate-text-from-image
