@@ -5,3 +5,4 @@ The problem of combining object detection and object recognition is a difficult 
 
 In this application we use CRAFT for text detection, TRBA model for text recognition and Transformer model for text translation from English to Vietnamese.
 
+![this_repo_inout](https://github.com/TruongNoDame/Translate-text-from-image/blob/main/text_recognition/demo_image/Picture1.png)
