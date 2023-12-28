@@ -16,3 +16,11 @@ cd Translate-text-from-image
 pip install -r requirements.txt
 python/python3 my_api.py
 ```
+To run this repo use docker:
+```
+git clone this repo
+cd Translate-text-from-image
+docker build -t image_name
+docker run -it --name container_name --network=host --ipc=host -p 8000:80 image_name
+```
+Where image_name and container_name are the name of the image and the name of the container you want to give them
