@@ -27,4 +27,4 @@ Where image_name and container_name are the name of the image and the name of th
 
 ## Usage
 To use the application, you can directly transmit the English text that needs to be translated into Vietnamese into the text field on the left, then press the "Translate" button, the translated text will return as Vietnamese on the right ( red area).
-[use_input_text](https://github.com/TruongNoDame/Translate-text-from-image/blob/main/text_recognition/demo_image/%E1%BA%A2nh%20ch%E1%BB%A5p%20m%C3%A0n%20h%C3%ACnh%202023-12-28%20202104.png)
+![use_input_text](https://github.com/TruongNoDame/Translate-text-from-image/blob/main/text_recognition/demo_image/%E1%BA%A2nh%20ch%E1%BB%A5p%20m%C3%A0n%20h%C3%ACnh%202023-12-28%20202104.png)
