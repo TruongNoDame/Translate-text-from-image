@@ -18,6 +18,8 @@ cd Translate-text-from-image
 pip install -r requirements.txt
 python/python3 my_api.py
 ```
+
+After running all code above, you can try it by your browser. Let put `http://localhost:8000/text` in your browser.
 To run this repo use docker:
 ```
 git clone this repo
